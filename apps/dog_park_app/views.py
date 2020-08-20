@@ -182,6 +182,7 @@ def edit_playdate(request, playdate_id):
                 edit_playdate.time = request.POST['time']
                 edit_playdate.comments = request.POST['comments']
                 edit_playdate.save()
+                context = {'MAPS_KEY':settings.MY_MAPS_KEY}
             return redirect(f'/playdates/{playdate_id}')
         return render(request, 'edit_playdate.html', context)
     return redirect('/')

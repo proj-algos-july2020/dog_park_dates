@@ -40,6 +40,8 @@
                 <button type="submit" class="btn btn-success mr-2" >Submit</button>
                 <td scope="col"><a href="/dashboard" class="btn btn-warning" role="button" aria-pressed="true">Cancel</a></td>
             </form>
+            
+            <script src="https://maps.googleapis.com/maps/api/js?key={{MAPS_KEY}}&callback=initMap&libraries=places&v=weekly&q={{play_date.park_address}}" defer></script>
             <script>             
                 function initMap() 
                 {
@@ -198,7 +200,7 @@
                 </div>
         </div>    
     </div>
-    
+    <script src="https://maps.googleapis.com/maps/api/js?key={{MAPS_KEY}}&callback=initMap&libraries=places&v=weekly&q={{play_date.park_address}}" defer></script>
 
 {% endblock %}
 </body>
