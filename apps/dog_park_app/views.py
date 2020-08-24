@@ -8,6 +8,10 @@ import json
 import bcrypt
 
 def index(request):
+    # if "user_id" in request.session:
+    #     context={
+    #         'logged_user': User.objects.get(id=request.session['user_id'])
+    #     }
     return render(request, 'index.html')
 
 def dashboard(request):

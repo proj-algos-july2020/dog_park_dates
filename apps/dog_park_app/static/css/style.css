@@ -6,3 +6,7 @@
 .jumbotron-fluid, .row{
     background: linear-gradient(rgba(238, 232, 232, 0.5), rgba(238, 232, 232, 0.5));
 }
+
+.list-group {
+    background-color: rgba(238, 232, 232, 0.3);
+}
