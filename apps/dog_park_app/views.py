@@ -8,6 +8,7 @@ import json
 import bcrypt
 
 def index(request):
+    print (settings.MY_MAPS_KEY)
     return render(request, 'index.html')
 
 def dashboard(request):
