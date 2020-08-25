@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.conf import settings
 from .models import *
 from apps.login_reg_app.models import User
 import urllib.request
@@ -8,6 +9,11 @@ import bcrypt
 from datetime import date
 
 def index(request):
+    # print (settings.MY_MAPS_KEY)
+    if "user_id" in request.session:
+        context={
+            'logged_user': User.objects.get(id=request.session['user_id'])
+         }
     return render(request, 'index.html')
 
 def dashboard(request):
@@ -24,7 +30,8 @@ def dashboard(request):
 def new(request):
     if "user_id" in request.session:
         context={
-            'logged_user': User.objects.get(id=request.session['user_id'])
+            'logged_user': User.objects.get(id=request.session['user_id']),
+            # 'MAPS_KEY':settings.MY_MAPS_KEY
         }
         if request.method == "POST":
             errors = Playdate.objects.validate_playdate(request.POST)
@@ -183,6 +190,7 @@ def edit_playdate(request, playdate_id):
                 edit_playdate.time = request.POST['time']
                 edit_playdate.comments = request.POST['comments']
                 edit_playdate.save()
+                # context = {'MAPS_KEY':settings.MY_MAPS_KEY}
             return redirect(f'/playdates/{playdate_id}')
         return render(request, 'edit_playdate.html', context)
     return redirect('/')
