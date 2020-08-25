@@ -6,6 +6,7 @@ from apps.login_reg_app.models import User
 import urllib.request
 import json
 import bcrypt
+from datetime import date
 
 def index(request):
     # print (settings.MY_MAPS_KEY)
@@ -20,6 +21,7 @@ def dashboard(request):
         return redirect('/signin/login')
     else:
         context = {
+            'today': date.today(),
             'all_playdates': Playdate.objects.order_by("-created_at"),
             'logged_user': User.objects.get(id=request.session['user_id'])
         }
