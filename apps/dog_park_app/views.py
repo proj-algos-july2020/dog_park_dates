@@ -11,9 +11,10 @@ from datetime import date
 def index(request):
     # print (settings.MY_MAPS_KEY)
     if "user_id" in request.session:
-        context={
+        context = {
             'logged_user': User.objects.get(id=request.session['user_id'])
-         }
+        }
+        return render(request, 'index.html', context)
     return render(request, 'index.html')
 
 def dashboard(request):

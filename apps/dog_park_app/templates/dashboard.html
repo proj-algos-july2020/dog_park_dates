@@ -64,7 +64,7 @@
                 <td scope="col">{{playdate.park_address}}</td>
                 <td scope="col">{{playdate.date}}</td>
                 <td scope="col">{{playdate.time|time:"g: i A"}}</td>
-            {%if playdate.date >= today and playdate.users_who_joined.count <= 10%}
+            {%if playdate.date >= today and playdate.users_who_joined.count < 10%}
                 <td scope="col"><a class="text-light font-weight-bold" href="/playdates/join/{{playdate.id}}">Join</a>
                 </td>
                 {%elif playdate.date >= today and playdate.users_who_joined.count > 10%}
