@@ -45,6 +45,8 @@
                 </form>
             </div>
             <div class="col-6">
+                <script src="https://maps.googleapis.com/maps/api/js?key={{MAPS_KEY}}&callback=initMap&libraries=places&v=weekly&q={{play_date.park_address}}" defer></script>
+                <script>
                 <script>
                     function initMap() {
                         var map = new google.maps.Map(document.getElementById('map'), {

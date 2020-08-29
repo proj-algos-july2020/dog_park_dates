@@ -29,6 +29,8 @@
             {%endif%}
         </div>
         <div class="col-6 googleMap" id="map"></div>
+        <script src="https://maps.googleapis.com/maps/api/js?key={{MAPS_KEY}}&callback=initMap&libraries=places&v=weekly&q={{play_date.park_address}}" defer></script>
+        <script>
         <script>
             var map, infoWindow;
             function initMap() {
